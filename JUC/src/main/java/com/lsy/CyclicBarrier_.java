@@ -5,6 +5,7 @@ import java.util.concurrent.CyclicBarrier;
 
 /**
  * @author lsy
+ * 限制线程的数量，当达到某个数量线程时才执行，否则阻塞
  */
 public class CyclicBarrier_ {
     public static void main(String[] args) {
