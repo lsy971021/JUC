@@ -1,17 +1,15 @@
 package com.lsy;
 
-import org.junit.Test;
-
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author lsy
  * 线程调用synchronized方法也不会影响别的线程执行别的方法
  */
-public class Synchronized {
+public class Synchronized_ {
     //@Test
     public static void main(String[] args) {
-        Synchronized s = new Synchronized();
+        Synchronized_ s = new Synchronized_();
         new Thread(() -> {
             try {
                 test01();
