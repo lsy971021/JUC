@@ -4,6 +4,10 @@ import java.util.Random;
 import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author lsy
+ * 按不同阶段对线程来执行
+ */
 public class Phaser_ {
     static Random r = new Random();
     static MarriagePhaser phaser = new MarriagePhaser();
