@@ -12,15 +12,16 @@ public class ReentrantLock_ {
     static ReentrantLock_ reentrantLock_ = new ReentrantLock_();
     public static void main(String[] args) {
         Thread t1 = new Thread(reentrantLock_::t1);
-        new Thread(reentrantLock_::t2).start();
+        Thread t2 = new Thread(reentrantLock_::t2);
+        t2.start();
         new Thread(()->{
             try {
                 TimeUnit.SECONDS.sleep(3);
                 /**
-                 * 3秒后打断线程t1的等待，往下执行   (线程里有lock.lockInterruptibly());
+                 * 3秒后打断线程t2，往下执行   (线程里有lock.lockInterruptibly());
                  */
-                t1.interrupt();
-                System.out.println("t1.interrupt()执行结束");
+                t2.interrupt();
+                System.out.println("interrupt()执行结束");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -49,12 +50,13 @@ public class ReentrantLock_ {
              */
 //            b = lock.tryLock(2, TimeUnit.SECONDS);
             /**
-             * 可以对interrupt()方法响应
+             * 获得一个可以被打断的锁,可以对interrupt()方法响应
              */
             lock.lockInterruptibly();
+            TimeUnit.SECONDS.sleep(5000);
             System.out.println("t2=="+b);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("t2被中断了");
         } finally {
             if(b)lock.unlock();
         }
