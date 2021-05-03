@@ -3,7 +3,6 @@ package com.lsy;
 import org.junit.Test;
 
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author lsy

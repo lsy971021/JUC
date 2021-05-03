@@ -7,12 +7,12 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author lsy
  */
-public class Lock_ {
+public class ReentrantLock_ {
     static Lock lock = new ReentrantLock();
-    static Lock_ lock_ = new Lock_();
+    static ReentrantLock_ reentrantLock_ = new ReentrantLock_();
     public static void main(String[] args) {
-        Thread t1 = new Thread(lock_::t1);
-        new Thread(lock_::t2).start();
+        Thread t1 = new Thread(reentrantLock_::t1);
+        new Thread(reentrantLock_::t2).start();
         new Thread(()->{
             try {
                 TimeUnit.SECONDS.sleep(3);
